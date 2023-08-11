@@ -1,0 +1,5 @@
+npm init
+npm i nodemon --save-dev
+npm i ejs
+npm i mongoose
+npm i body-parser

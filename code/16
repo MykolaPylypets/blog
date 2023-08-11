@@ -1,0 +1,6 @@
+const BlogPost = require('./models/BlogPost.js')
+app.post('/posts/store', (req, res) => {
+  BlogPost.create(req.body)
+})
+res.redirect('/')
+})
