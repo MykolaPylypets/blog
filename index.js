@@ -1,9 +1,13 @@
+const BlogPost = require('./models/BlogPost.js')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const ejs = require('ejs')
 const path = require('path')
 const express = require('express')
 const app = new express()
 app.use(express.static('public'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
 
 mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true})
@@ -33,7 +37,7 @@ app.get('/posts/new', (req, res) => {
 })
 
 app.post('/posts/store', (req, res) => {
-  console.log(req.body)
+  BlogPost.create(req.body);
   res.redirect('/')
 })
 
