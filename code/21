@@ -1,0 +1,3 @@
+<div class="post-heading">
+<h1><%= blogpost.title %></h1>
+<h2 class="subheading"><%= blogpost.body %></h2>

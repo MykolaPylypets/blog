@@ -1,0 +1,3 @@
+<span class="meta">Posted by
+<a href="#"><%= blogpost.username %></a>
+on <%= blogpost.datePosted.toDateString() %></span>

@@ -1,0 +1,3 @@
+<div class="post-preview">
+<a href="/post/<%= blogposts[i]._id
+%>">

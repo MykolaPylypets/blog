@@ -16,8 +16,11 @@ app.listen(4000, () => {
   console.log('App listening on port 4000')
 })
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async(req, res) => {
+  const blogposts = await BlogPost.find({})
+  res.render('index', {
+    blogposts
+  });
 })
 
 app.get('/about', (req, res) => {
