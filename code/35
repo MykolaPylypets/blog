@@ -1,0 +1,10 @@
+const homeController = require('./controllers/home')
+const getPostController = require('./controllers/getPost')
+const newPostController = require('./controllers/newPost')
+const storePostController = require('./controllers/storePost')
+
+app.get('/', homeController)
+app.get('/post/:id', getPostController)
+app.get('/posts/new', newPostController)
+app.post('/posts/store', storePostController)
+
