@@ -1,3 +1,4 @@
+const fileUpload = require('express-fileupload')
 const BlogPost = require('./models/BlogPost.js')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
@@ -5,6 +6,7 @@ const ejs = require('ejs')
 const path = require('path')
 const express = require('express')
 const app = new express()
+app.use(fileUpload())
 app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -43,7 +45,10 @@ app.get('/posts/new', (req, res) => {
 })
 
 app.post('/posts/store', (req, res) => {
-  BlogPost.create(req.body);
+  let image = req.files.image;
+  image.mv(path.resolve(__dirname, 'public/img', image.name));
+  BlogPost.create({...req.body,
+  image: '/img/' + image.name});
   res.redirect('/')
 })
 

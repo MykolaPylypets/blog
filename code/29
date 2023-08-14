@@ -1,0 +1,1 @@
+	<header class="masthead" style="background-image: url('<%= blogpost.image %>')">
