@@ -1,3 +1,5 @@
+const storeUserController = require('./controllers/storeUser')
+const newUserController = require('./controllers/newUser')
 const validateMiddleware = require('./middleware/validationMiddleware')
 const fileUpload = require('express-fileupload')
 const bodyParser = require('body-parser')
@@ -27,6 +29,5 @@ app.get('/', homeController)
 app.get('/post/:id', getPostController)
 app.get('/posts/new', newPostController)
 app.post('/posts/store', storePostController)
-
-
-
+app.get('/auth/register', newUserController)
+app.post('/users/register', storeUserController)
